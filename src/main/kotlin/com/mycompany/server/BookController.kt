@@ -23,10 +23,10 @@ class BookController(val service: BookService) {
     @GetMapping
     fun getAll() = service.getAll()
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     @ResponseBody
     fun getBookById(@PathVariable id: String): ResponseEntity<String> {
-        val book = service.getById(id)
+        val book = service.getById(id.toLong())
         if (book.isEmpty) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No such a book with id $id")
         }
@@ -42,9 +42,9 @@ class BookController(val service: BookService) {
         return ResponseEntity.ok().body(serializeBook(newBook))
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     fun deleteBook(@PathVariable id: String): ResponseEntity<String> {
-        val bookDeleted = service.deleteBookById(id)
+        val bookDeleted = service.deleteBookById(id.toLong())
         if (bookDeleted) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No such a book with id $id")
         }
