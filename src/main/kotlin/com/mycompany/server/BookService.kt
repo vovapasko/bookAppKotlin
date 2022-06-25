@@ -9,10 +9,10 @@ import javax.transaction.Transactional
 class BookService(val repository: BookRepository) {
     fun getAll() = repository.findAll()
 
-    fun getById(id: String) = repository.findById(id)
+    fun getById(id: Long) = repository.findById(id)
     fun createBook(book: Book) = repository.save(book)
 
-    fun deleteBookById(id: String): Boolean {
+    fun deleteBookById(id: Long): Boolean {
         val bookExists = repository.existsById(id)
         if (bookExists) {
             repository.deleteById(id)
