@@ -19,6 +19,4 @@ class BookService(val repository: BookRepository) {
         }
         return bookExists
     }
-
-
 }
