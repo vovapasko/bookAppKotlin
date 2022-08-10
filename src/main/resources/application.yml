@@ -6,3 +6,6 @@ spring:
     url: jdbc:postgresql://localhost:5432/books
     username: user
     password: pass
+  flyway:
+    locations: classpath:/db/migrations/common
+    enabled: true
