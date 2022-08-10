@@ -1,0 +1,8 @@
+server:
+  port: 8000
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/books
+    username: user
+    password: pass

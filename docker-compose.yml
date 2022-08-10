@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  books-db:
+    image: docker.io/library/postgres:14.4
+    container_name: books-db
+    ports:
+      - 5432:5432
+    volumes:
+      - books-db:/var/lib/postgresql/books-db
+    environment:
+      - POSTGRES_DB=books
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=pass
+
+volumes:
+  books-db:
+    driver: local
