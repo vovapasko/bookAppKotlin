@@ -1,8 +1,24 @@
 package com.mycompany.server
 
+import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Id
 import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
+import javax.persistence.Table
 
 @Entity
-data class Book(@Id @GeneratedValue val id: Long, val title: String, val author: String, val read: Boolean)
+@Table(name = "books")
+data class Book(
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long,
+
+    @Column(nullable = false)
+    val title: String,
+
+    @Column(nullable = false)
+    val author: String,
+
+    @Column(nullable = false, name = "is_read")
+    val read: Boolean
+)
