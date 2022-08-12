@@ -7,5 +7,5 @@ spring:
     username: user
     password: pass
   flyway:
-    locations: classpath:/db/migrations/common
+    locations: classpath:/db/migrations/common,classpath:/db/migrations/repeatable
     enabled: true
