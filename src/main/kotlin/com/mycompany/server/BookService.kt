@@ -3,7 +3,6 @@ package com.mycompany.server
 import org.springframework.stereotype.Service
 import javax.transaction.Transactional
 
-
 @Service
 @Transactional
 class BookService(val repository: BookRepository) {
