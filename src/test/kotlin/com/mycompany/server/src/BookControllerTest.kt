@@ -1,9 +1,6 @@
-package com.mycompany.server
+package com.mycompany.server.src
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.mycompany.server.src.Book
-import com.mycompany.server.src.BookController
-import com.mycompany.server.src.BookService
 import io.mockk.verify
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
