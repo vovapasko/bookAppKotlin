@@ -1,6 +1,9 @@
 package com.mycompany.server
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.mycompany.server.src.Book
+import com.mycompany.server.src.BookController
+import com.mycompany.server.src.BookService
 import io.mockk.verify
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -22,10 +25,13 @@ internal class BookControllerTest(@Autowired val mockMvc: MockMvc) {
     @MockkBean
     private lateinit var bookService: BookService
 
-    private val mockBooks = listOf(
-        Book(0, "Test title 0", "Jon Doe", false),
-        Book(1, "Test title 1", "Jon Doe", false),
-        Book(2, "Test title 2", "Lara Doe", false)
+    private val mockBooks = mapOf(
+        "books" to
+                listOf(
+                    Book(0, "Test title 0", "Jon Doe", false),
+                    Book(1, "Test title 1", "Jon Doe", false),
+                    Book(2, "Test title 2", "Lara Doe", false)
+                )
     )
     private val mockBookToCreate = Book(3, "Test title 3", "Andrew Doe", false)
 

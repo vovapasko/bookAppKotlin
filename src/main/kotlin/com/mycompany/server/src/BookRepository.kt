@@ -1,4 +1,4 @@
-package com.mycompany.server
+package com.mycompany.server.src
 
 import org.springframework.data.repository.CrudRepository
 

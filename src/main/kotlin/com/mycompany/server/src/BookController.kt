@@ -1,4 +1,4 @@
-package com.mycompany.server
+package com.mycompany.server.src
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.http.HttpStatus
