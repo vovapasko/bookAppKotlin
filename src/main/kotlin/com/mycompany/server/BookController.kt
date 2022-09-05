@@ -3,6 +3,7 @@ package com.mycompany.server
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -18,6 +19,8 @@ val mapper = ObjectMapper()
 @RestController
 @RequestMapping("/books", produces = ["application/json"])
 class BookController(val service: BookService) {
+
+    @CrossOrigin(origins = ["http://localhost:8080"])
     @GetMapping
     fun getAll() = service.getAll()
 

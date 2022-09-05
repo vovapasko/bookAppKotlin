@@ -6,7 +6,7 @@ import javax.transaction.Transactional
 @Service
 @Transactional
 class BookService(val repository: BookRepository) {
-    fun getAll() = repository.findAll()
+    fun getAll() = mapOf("books" to repository.findAll())
 
     fun getById(id: Long) = repository.findById(id)
     fun createBook(book: Book) = repository.save(book)
