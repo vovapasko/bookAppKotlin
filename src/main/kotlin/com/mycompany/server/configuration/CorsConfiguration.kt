@@ -1,34 +1,24 @@
 package com.mycompany.server.configuration;
 
-import org.springframework.web.filter.CorsFilter
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod
-import org.springframework.web.cors.CorsConfiguration
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource
+import org.springframework.web.servlet.config.annotation.CorsRegistry
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 @Configuration
 class CorsConfiguration {
 
     @Bean
-    fun configCors(): CorsFilter {
-        val corsConfig = CorsConfiguration()
-            .applyPermitDefaultValues().apply {
-                allowedMethods = listOf(
-                    HttpMethod.HEAD.name,
-                    HttpMethod.GET.name,
-                    HttpMethod.POST.name,
-                    HttpMethod.PUT.name,
-                    HttpMethod.DELETE.name,
-                    HttpMethod.PATCH.name
-                )
-                allowedOrigins = listOf("http://localhost:8080")
-                allowCredentials = true
-                addExposedHeader("Content-Disposition")
+    fun configCors(): WebMvcConfigurer {
+        return object : WebMvcConfigurer {
+            override fun addCorsMappings(registry: CorsRegistry) {
+                registry.addMapping("/**")
+                    .allowedMethods("*")
+                    .allowedOriginPatterns("http://localhost:8080")
+                    .allowCredentials(true)
             }
-        val source = UrlBasedCorsConfigurationSource().apply {
-            registerCorsConfiguration("/**", corsConfig)
+
+
         }
-        return CorsFilter(source)
     }
 }
