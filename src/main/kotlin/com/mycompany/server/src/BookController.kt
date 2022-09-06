@@ -20,7 +20,7 @@ val mapper = ObjectMapper()
 @RequestMapping("/books", produces = ["application/json"])
 class BookController(val service: BookService) {
 
-    @CrossOrigin(origins = ["http://localhost:8080"])
+
     @GetMapping
     fun getAll() = service.getAll()
 
