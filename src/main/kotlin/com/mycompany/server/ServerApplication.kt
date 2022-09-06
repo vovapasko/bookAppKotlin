@@ -1,4 +1,4 @@
-package com.mycompany.server.src
+package com.mycompany.server
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
